@@ -1,8 +1,6 @@
-# README
+# Monitoria UFBA
 
-Monitoria UFBA
-
-Projeto Monitoria da UFBA para Disciplina MATA62
+Projeto para gerenciamento de monitoria da UFBA para Disciplina MATA62, Engenharia de Software 1
 
 [![Code Climate](https://codeclimate.com/github/monitoriamata62/ProjetoMonitoria/badges/gpa.svg)](https://codeclimate.com/github/monitoriamata62/ProjetoMonitoria)
 [![Test Coverage](https://codeclimate.com/github/monitoriamata62/ProjetoMonitoria/badges/coverage.svg)](https://codeclimate.com/github/monitoriamata62/ProjetoMonitoria/coverage)
