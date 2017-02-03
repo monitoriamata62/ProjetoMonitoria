@@ -1,2 +1,0 @@
-class Inicio < ApplicationRecord
-end
