@@ -14,7 +14,7 @@ class AreasController < ApplicationController
   def show
   end
 
-  # GET /areas/new
+  # GET /areas/new4
   def new
     @area = Area.new
   end
