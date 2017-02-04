@@ -4,8 +4,14 @@ class UnidadesController < ApplicationController
   # GET /unidades
   # GET /unidades.json2
   def index
-    @unidades = Unidade.all
-  end
+    if params[:area_id].present?
+      id_parametro = params.require(:area_id)
+      @unidades = Unidade.where(area: id_parametro)
+    else
+      @unidades = Unidade.order(:descricao)
+    end
+   end
+
 
   # GET /unidades/1
   # GET /unidades/1.json
