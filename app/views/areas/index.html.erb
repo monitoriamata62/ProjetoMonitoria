@@ -17,6 +17,7 @@
         <td><%= link_to 'Show', area %></td>
         <td><%= link_to 'Edit', edit_area_path(area) %></td>
         <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Unidades', area_unidades_path(area.id)%></td>
       </tr>
     <% end %>
   </tbody>
