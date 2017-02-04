@@ -2,7 +2,7 @@ class UnidadesController < ApplicationController
   before_action :set_unidade, only: [:show, :edit, :update, :destroy]
 
   # GET /unidades
-  # GET /unidades.json
+  # GET /unidades.json2
   def index
     @unidades = Unidade.all
   end
