@@ -13,7 +13,7 @@ class UnidadesController < ApplicationController
    end
 
 
-  # GET /unidades/1
+  # GET /unidades/12
   # GET /unidades/1.json
   def show
   end
