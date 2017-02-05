@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
 
+  resources :disciplinas
+
    #Relacionamentos:
+
+  resources :unidade do
+    resources :disciplinas
+  end
 
   resources :areas do
     resources :unidades

@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204125656) do
+ActiveRecord::Schema.define(version: 20170205040714) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "disciplinas", force: :cascade do |t|
+    t.string   "descricao"
+    t.integer  "unidade_id"
+    t.string   "sigla"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["unidade_id"], name: "index_disciplinas_on_unidade_id"
   end
 
   create_table "unidades", force: :cascade do |t|
