@@ -5,8 +5,8 @@ class UnidadesController < ApplicationController
   # GET /unidades.json2
   def index
     if params[:area_id].present?
-      id_parametro = params.require(:area_id)
-      @unidades = Unidade.where(area: id_parametro)
+      lId_parametro = params.require(:area_id)
+      @unidades = Unidade.where(area: lId_parametro)
     else
       @unidades = Unidade.order(:descricao)
     end
