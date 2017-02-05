@@ -16,11 +16,7 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
-    when 'New Post'
-      new_post_path
-      
-    when 'Show Post'
-      post_path(Post.first)
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
