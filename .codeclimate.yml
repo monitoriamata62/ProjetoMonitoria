@@ -6,3 +6,5 @@ engines:
         ruby:
           mass_threshold: 70
         javascript:
+exclude_paths:
+- "config/locales/pt-BR.yml"
