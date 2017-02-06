@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 20170205040714) do
     t.index ["unidade_id"], name: "index_disciplinas_on_unidade_id"
   end
 
+  create_table "inicios", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "titulo"
+    t.text     "conteudo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "unidades", force: :cascade do |t|
     t.string   "descricao"
     t.integer  "area_id"
