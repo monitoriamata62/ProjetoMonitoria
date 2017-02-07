@@ -12,6 +12,11 @@ class UtilizadorsController < ApplicationController
   def show
   end
 
+  def monitores
+    @utilizadors = Utilizador.where(identificador: 2)
+  end
+
+
   # GET /utilizadors/new
   def new
     @utilizador = Utilizador.new
