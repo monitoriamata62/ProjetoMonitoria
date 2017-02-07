@@ -1,0 +1,1 @@
+json.array! @monitoria, partial: 'monitoria/monitorium', as: :monitorium

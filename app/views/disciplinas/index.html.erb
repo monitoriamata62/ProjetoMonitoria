@@ -21,6 +21,7 @@
         <td><%= link_to 'Show', disciplina %></td>
         <td><%= link_to 'Edit', edit_disciplina_path(disciplina) %></td>
         <td><%= link_to 'Destroy', disciplina, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Monitoria', disciplina_monitoria_path(disciplina.id)%></td>
       </tr>
     <% end %>
   </tbody>
