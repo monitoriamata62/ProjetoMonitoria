@@ -1,6 +1,5 @@
 class DisciplinasController < ApplicationController
   before_action :set_disciplina, only: [:show, :edit, :update, :destroy]
-  include ActionView::Helpers::UrlHelper
 
   # GET /disciplinas
   # GET /disciplinas.json
@@ -18,34 +17,20 @@ class DisciplinasController < ApplicationController
   def show
   end
 
-  # GET /disciplinas/new1
+  # GET /disciplinas/new
   def new
     @disciplina = Disciplina.new
   end
-
 
   # GET /disciplinas/1/edit
   def edit
   end
 
-
-  helper_method :conditional_link
-  def conditional_link
-    if params[:unidade_id].present?
-      return link_to 'Nova Disciplina', new_unidade_disciplina_path
-    else
-      return link_to 'Nova Disciplina', new_disciplina_path
-    end
-  end
-
-
-
-
-
   # POST /disciplinas
   # POST /disciplinas.json
   def create
     @disciplina = Disciplina.new(disciplina_params)
+
     respond_to do |format|
       if @disciplina.save
         format.html { redirect_to @disciplina, notice: 'Disciplina was successfully created.' }
@@ -82,13 +67,13 @@ class DisciplinasController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_disciplina
-      @disciplina = Disciplina.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_disciplina
+    @disciplina = Disciplina.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def disciplina_params
-      params.require(:disciplina).permit(:descricao, :unidade_id, :sigla)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def disciplina_params
+    params.require(:disciplina).permit(:descricao, :unidade_id, :sigla)
+  end
 end

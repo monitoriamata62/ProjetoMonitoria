@@ -4,16 +4,16 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Descricao</th>
-      <th>Unidade</th>
-      <th>Sigla</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Descricao</th>
+    <th>Unidade</th>
+    <th>Sigla</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @disciplinas.each do |disciplina| %>
+  <% @disciplinas.each do |disciplina| %>
       <tr>
         <td><%= disciplina.descricao %></td>
         <td><%= disciplina.unidade.descricao %></td>
@@ -23,10 +23,10 @@
         <td><%= link_to 'Destroy', disciplina, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Monitoria', disciplina_monitoria_path(disciplina.id)%></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to conditional_link%>
+<%= link_to 'Nova Disciplina', new_disciplina_path %>
