@@ -18,7 +18,7 @@ class DisciplinasController < ApplicationController
   def show
   end
 
-  # GET /disciplinas/new
+  # GET /disciplinas/new1
   def new
     @disciplina = Disciplina.new
   end
