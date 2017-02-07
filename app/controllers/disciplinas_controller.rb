@@ -20,10 +20,7 @@ class DisciplinasController < ApplicationController
 
   # GET /disciplinas/new
   def new
-    #@disciplina = Disciplina.new
-    if request.post?
-      @disciplina.save
-    end
+    @disciplina = Disciplina.new
   end
 
 
@@ -48,7 +45,7 @@ class DisciplinasController < ApplicationController
   # POST /disciplinas
   # POST /disciplinas.json
   def create
-    @disciplina = Disciplina.new(params[:disciplina])
+    @disciplina = Disciplina.new(disciplina_params)
     respond_to do |format|
       if @disciplina.save
         format.html { redirect_to @disciplina, notice: 'Disciplina was successfully created.' }
