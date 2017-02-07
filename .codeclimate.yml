@@ -9,7 +9,11 @@ engines:
   coffeelint:
     enabled: true
   duplication:
-    enabled: false
+    enabled: true
+    
+    checks:
+      Similar code:
+        enabled: false
     config:
       languages:
       - ruby
@@ -18,10 +22,20 @@ engines:
       - php
   eslint:
     enabled: true
+    
+    checks:
+      no-unused-expressions:
+        enabled: false
   fixme:
     enabled: true
   rubocop:
     enabled: true
+    
+    checks:
+      Rubocop/Lint/DefEndAlignment:
+        enabled: false
+      Rubocop/Lint/AssignmentInCondition:
+        enabled: false
 ratings:
   paths:
   - Gemfile.lock
