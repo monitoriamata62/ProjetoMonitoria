@@ -16,9 +16,6 @@
     <% @areas.each do |area| %>
       <tr>
         <td><%= area.descricao %></td>
-        <td><%= link_to 'Show', area %></td>
-        <td><%= link_to 'Edit', edit_area_path(area) %></td>
-        <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Unidades', area_unidades_path(area.id)%></td>
       </tr>
     <% end %>
@@ -26,8 +23,6 @@
 </table>
 
 <br>
-
-<%= link_to 'Nova Area', new_area_path %>
 
 <%= link_to 'Unidades', unidades_path %>
 
@@ -38,3 +33,5 @@
 <%= link_to 'Monitores', monitores_path %>
 
 <%= link_to 'Login', areas_path %>
+
+<!--colocar o back futuramente-->
