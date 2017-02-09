@@ -19,6 +19,8 @@
         <td><%= disciplina.unidade.descricao %></td>
         <td><%= disciplina.sigla %></td>
         <td><%= link_to 'Monitoria', disciplina_monitoria_path(disciplina.id)%></td>
+        <td><%= link_to 'Editar', edit_disciplina_path(disciplina) %></td>
+        <td><%= link_to 'Excluir', disciplina, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
   </tbody>

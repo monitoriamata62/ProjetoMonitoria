@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Utilizadors</h1>
+<h1>Utilizadores</h1>
 
 <table>
   <thead>
@@ -20,6 +20,8 @@
         <td><%= utilizador.email %></td>
         <td><%= utilizador.matricula %></td>
         <td><%= utilizador.identificador %></td>
+        <td><%= link_to 'Editar', edit_utilizador_path(utilizador) %></td>
+        <td><%= link_to 'Excluir', utilizador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
   </tbody>

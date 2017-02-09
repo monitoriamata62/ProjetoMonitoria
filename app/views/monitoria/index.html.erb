@@ -20,6 +20,8 @@
         <td><%= monitorium.local %></td>
         <td><%= monitorium.disciplina.descricao %></td>
         <td><%= monitorium.disciplina.sigla %></td>
+        <td><%= link_to 'Editar', edit_monitorium_path(monitorium) %></td>
+        <td><%= link_to 'Excluir', monitorium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
