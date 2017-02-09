@@ -20,9 +20,6 @@
         <td><%= monitorium.local %></td>
         <td><%= monitorium.disciplina.descricao %></td>
         <td><%= monitorium.disciplina.sigla %></td>
-        <td><%= link_to 'Show', monitorium %></td>
-        <td><%= link_to 'Edit', edit_monitorium_path(monitorium) %></td>
-        <td><%= link_to 'Destroy', monitorium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +27,8 @@
 
 <br>
 
-<%= link_to 'New Monitorium', new_monitorium_path %>
+<%= link_to 'Nova Monitoria', new_monitorium_path %>
+
+<%= link_to 'Disciplinas', disciplinas_path %>
+
+
