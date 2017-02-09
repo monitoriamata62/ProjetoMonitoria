@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Monitoria</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Utilizador</th>
+      <th>Local</th>
+      <th>Disciplina</th>
+      <th>Sigla</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @monitoria.each do |monitorium| %>
+      <tr>
+        <td><%= monitorium.utilizador.nome %></td>
+        <td><%= monitorium.local %></td>
+        <td><%= monitorium.disciplina.descricao %></td>
+        <td><%= monitorium.disciplina.sigla %></td>
+        <td><%= link_to 'Editar', edit_monitorium_path(monitorium) %></td>
+        <td><%= link_to 'Excluir', monitorium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Monitoria', new_monitorium_path %>
+
+<%= link_to 'Disciplinas', disciplinas_path %>
+
+

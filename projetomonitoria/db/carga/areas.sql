@@ -1,0 +1,6 @@
+INSERT INTO areas (id, descricao, created_at, updated_at) VALUES (1, 'Área I, Ciências Fisicas, Matematica e Tecnologias', '2017-02-02 23:53:54.696311', '2017-02-02 23:53:54.696311');
+INSERT INTO areas (id, descricao, created_at, updated_at) VALUES (2, 'Área II, Ciências Biológicas e Profissões de Saúde', '2017-02-02 22:29:53.537087', '2017-02-02 22:29:53.537087');
+INSERT INTO areas (id, descricao, created_at, updated_at) VALUES (3, 'Área III - Filosofia e Ciências Humanas', '2017-02-02 22:31:45.930312', '2017-02-02 22:31:45.930312');
+INSERT INTO areas (id, descricao, created_at, updated_at) VALUES (4, 'Área IV - Letras', '2017-02-02 22:32:02.750169', '2017-02-02 22:32:02.750169');
+INSERT INTO areas (id, descricao, created_at, updated_at) VALUES (5, 'Área V - Artes ', '2017-02-02 22:32:13.230873', '2017-02-02 22:32:13.230873');
+INSERT INTO areas (id, descricao, created_at, updated_at) VALUES (6, 'Área VI - Bacharelado Interdisciplinar(BI)', '2017-02-02 22:32:36.033191', '2017-02-02 22:32:36.033191');
