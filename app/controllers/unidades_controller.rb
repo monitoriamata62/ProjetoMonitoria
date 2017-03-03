@@ -8,10 +8,13 @@ class UnidadesController < ApplicationController
       lId_parametro = params.require(:area_id)
       @unidades = Unidade.where(area: lId_parametro)
     else
-      @unidades = Unidade.order(:descricao)
+      if params[:search]
+        @areas = Unidade.where("descricao like ?", "%#{params[:search]}%")
+      else
+        @unidades = Unidade.order(:descricao)
+      end
     end
-   end
-
+  end
 
   # GET /unidades/12
   # GET /unidades/1.json

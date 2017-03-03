@@ -38,6 +38,9 @@ gem 'jbuilder', '~> 2.5'
 #internacionalização (i18n)
 gem 'rails-i18n'
 
+gem 'bootstrap-sass'
+gem 'compass-rails'
+
 
 
 group :development, :test do

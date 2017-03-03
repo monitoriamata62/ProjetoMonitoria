@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <html lang="pt-br">
+  
+<%= form_tag(areas_path, :method => :get) do %>
+  <%= text_field_tag 'search', nil, placeholder: 'Digite a área' %>
+  <%= submit_tag "Pesquisar" %>
+<% end %>
 
 <h1>Áreas</h1>
 
@@ -24,14 +29,15 @@
 
 <br>
 
-<%= link_to 'Unidades', unidades_path %>
 
-<%= link_to 'Disciplinas', disciplinas_path %>
+<button type="button" class="btn btn-primary"><%= link_to 'Unidades', unidades_path, {:style=>'color:#FFFFFF;', :class => "css_class"} %></button>
 
-<%= link_to 'Monitorias', monitoria_path %>
+<button type="button" class="btn btn-primary"><%= link_to 'Disciplinas', disciplinas_path, {:style=>'color:#FFFFFF;', :class => "css_class"} %></button>
 
-<%= link_to 'Monitores', monitores_path %>
+<button type="button" class="btn btn-primary"><%= link_to 'Monitorias', monitoria_path, {:style=>'color:#FFFFFF;', :class => "css_class"} %></button>
 
-<%= link_to 'Login', areas_path %>
+<button type="button" class="btn btn-primary"><%= link_to 'Login', utilizadors_path, {:style=>'color:#FFFFFF;', :class => "css_class"} %></button>
+
+
 
 <!--colocar o back futuramente-->

@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Monitoria</h1>
-
+<%= form_tag(monitoria_path, :method => :get) do %>
+  <%= text_field_tag 'search', nil, placeholder: 'Digite nome do monitor' %>
+  <%= submit_tag "Pesquisar" %>
+<% end %>
 <table>
   <thead>
     <tr>
@@ -29,8 +32,9 @@
 
 <br>
 
-<%= link_to 'Nova Monitoria', new_monitorium_path %>
+<button type="button" class="btn btn-primary"><%= link_to 'Nova Monitoria', new_monitorium_path, {:style=>'color:#FFFFFF;', :class => "css_class"} %></button>
 
-<%= link_to 'Disciplinas', disciplinas_path %>
+<button type="button" class="btn btn-primary"><%= link_to 'Voltar', :back, {:style=>'color:#FFFFFF;', :class => "css_class"} %></button>
+
 
 

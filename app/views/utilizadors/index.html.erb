@@ -29,9 +29,11 @@
 
 <br>
 
-<%= link_to 'Novo Utilizador', new_utilizador_path %>
+<button type="button" class="btn btn-primary"><%= link_to 'Novo Utilizador', new_utilizador_path, {:style=>'color:#FFFFFF;', :class => "css_class"} %></button>
 
-<%= link_to 'Início', areas_path %>
+<button type="button" class="btn btn-primary"><%= link_to 'Inicio', areas_path, {:style=>'color:#FFFFFF;', :class => "css_class"} %></button>
+
+<button type="button" class="btn btn-primary"><%= link_to 'Voltar', :back, {:style=>'color:#FFFFFF;', :class => "css_class"} %></button>
 
 
 

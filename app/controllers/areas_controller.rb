@@ -4,7 +4,11 @@ class AreasController < ApplicationController
   # GET /areas
   # GET /areas.json
   def index
-    @areas = Area.order(:descricao)
+    if params[:search]
+      @areas = Area.where("descricao like ?", "%#{params[:search]}%")
+    else
+      @areas = Area.order(:descricao)
+    end
   end
 
   # GET /areas/1
