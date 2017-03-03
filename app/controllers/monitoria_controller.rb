@@ -5,12 +5,18 @@ class MonitoriaController < ApplicationController
   # GET /monitoria.json
   def index
      if params[:search]
+       @lId_monitor = Utilizador.all.where("nome like ?", "%#{params[:search]}%")
        if params[:disciplina_id].present?
           lId_parametro = params.require(:disciplina_id)
-          lId_monitor = Utilizador.where("nome like ?", "%#{params[:search]}%")
-          @monitoria = Monitorium.where(disciplina: lId_parametro).where(utilizador_id: lId_monitor.id)
-        else
-          @monitoria = Monitorium.all
+          @monitoria = Monitorium.where(disciplina: lId_parametro)
+          @lId_monitor.each do |item|
+            @monitoria = @monitoria.where("utilizador_id = ?", item.id)
+          end
+       else
+         @monitoria = Monitorium.all
+         @lId_monitor.each do |item|
+           @monitoria = @monitoria.where("utilizador_id = ?", item.id)
+         end
       end
     else
       if params[:disciplina_id].present?
@@ -21,6 +27,8 @@ class MonitoriaController < ApplicationController
       end
     end
   end
+
+
 
   # GET /monitoria/1
   # GET /monitoria/1.json
