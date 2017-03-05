@@ -12,9 +12,27 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
+      when 'New Disciplina'
+        new_disciplina_path
 
-    when /^the home\s?page$/
+      when 'Show Disciplina'
+        disciplinas_path(Disciplina.last)
+
+
+      when 'New Unidade'
+        new_unidade_path
+
+      when 'Show Unidade'
+        unidades_path(Unidade.last)
+
+
+
+
+
+
+      when /^the home\s?page$/
       '/'
+
 
 
 
