@@ -4,7 +4,7 @@ class MonitoriaController < ApplicationController
   # GET /monitoria
   # GET /monitoria.json
   def index
-     if params[:search]
+    if params[:search]
       @monitoria = Monitorium.where("monitor like ?", "%#{params[:search]}%")
     else
       @monitoria = Monitorium.order(:monitor)
