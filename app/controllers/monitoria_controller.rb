@@ -1,6 +1,6 @@
 class MonitoriaController < ApplicationController
   before_action :set_monitorium, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, :except => [:show, :index]
+  #before_action :authenticate_user!, :except => [:show, :index]
   # GET /monitoria
   # GET /monitoria.json
   def index
