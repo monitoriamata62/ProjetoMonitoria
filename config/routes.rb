@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :utilizadors
+  devise_for :users
   resources :monitoria
   root to: redirect('/areas')
 
@@ -18,8 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :disciplinas do
-    resources :monitoria
-  end
+    end
 
   #URL/CONTROLADOR/AÇÂO/O QUE SERÀ FEITO
   match 'monitores', controller: 'utilizadors', action: 'monitores', via: 'get'

@@ -1,11 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  utilizador: one
+  monitor: MyString
   local: MyString
+  data: MyString
+  inicio: MyString
+  fim: MyString
   disciplina: one
 
 two:
-  utilizador: two
+  monitor: MyString
   local: MyString
+  data: MyString
+  inicio: MyString
+  fim: MyString
   disciplina: two

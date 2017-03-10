@@ -1,1 +1,4 @@
 @import 'bootstrap';
+.centered {
+  @include center-block();
+}

@@ -17,7 +17,7 @@ class MonitoriaControllerTest < ActionDispatch::IntegrationTest
 
   test "should create monitorium" do
     assert_difference('Monitorium.count') do
-      post monitoria_url, params: { monitorium: { disciplina_id: @monitorium.disciplina_id, local: @monitorium.local, utilizador_id: @monitorium.utilizador_id } }
+      post monitoria_url, params: { monitorium: { data: @monitorium.data, disciplina_id: @monitorium.disciplina_id, fim: @monitorium.fim, inicio: @monitorium.inicio, local: @monitorium.local, monitor: @monitorium.monitor } }
     end
 
     assert_redirected_to monitorium_url(Monitorium.last)
@@ -34,7 +34,7 @@ class MonitoriaControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update monitorium" do
-    patch monitorium_url(@monitorium), params: { monitorium: { disciplina_id: @monitorium.disciplina_id, local: @monitorium.local, utilizador_id: @monitorium.utilizador_id } }
+    patch monitorium_url(@monitorium), params: { monitorium: { data: @monitorium.data, disciplina_id: @monitorium.disciplina_id, fim: @monitorium.fim, inicio: @monitorium.inicio, local: @monitorium.local, monitor: @monitorium.monitor } }
     assert_redirected_to monitorium_url(@monitorium)
   end
 

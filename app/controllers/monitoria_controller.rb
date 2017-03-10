@@ -1,35 +1,16 @@
 class MonitoriaController < ApplicationController
   before_action :set_monitorium, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, :except => [:show, :index]
   # GET /monitoria
   # GET /monitoria.json
   def index
      if params[:search]
-       @lId_monitor = Utilizador.all.where("nome like ?", "%#{params[:search]}%")
-       if params[:disciplina_id].present?
-          lId_parametro = params.require(:disciplina_id)
-          @monitoria = Monitorium.where(disciplina: lId_parametro)
-          @lId_monitor.each do |item|
-            @monitoria = @monitoria.where("utilizador_id = ?", item.id)
-          end
-       else
-         @monitoria = Monitorium.all
-         @lId_monitor.each do |item|
-           @monitoria = @monitoria.where("utilizador_id = ?", item.id)
-         end
-      end
+      @monitoria = Monitorium.where("monitor like ?", "%#{params[:search]}%")
     else
-      if params[:disciplina_id].present?
-        lId_parametro = params.require(:disciplina_id)
-        @monitoria = Monitorium.where(disciplina: lId_parametro)
-      else
-        @monitoria = Monitorium.all
-      end
+      @monitoria = Monitorium.order(:monitor)
     end
   end
-
-
-
+  
   # GET /monitoria/1
   # GET /monitoria/1.json
   def show
@@ -38,6 +19,7 @@ class MonitoriaController < ApplicationController
   # GET /monitoria/new
   def new
     @monitorium = Monitorium.new
+  
   end
 
   # GET /monitoria/1/edit
@@ -51,7 +33,7 @@ class MonitoriaController < ApplicationController
 
     respond_to do |format|
       if @monitorium.save
-        format.html { redirect_to @monitorium, notice: 'Monitorium was successfully created.' }
+        format.html { redirect_to @monitorium, notice: 'Nova monitoria criada.' }
         format.json { render :show, status: :created, location: @monitorium }
       else
         format.html { render :new }
@@ -65,7 +47,7 @@ class MonitoriaController < ApplicationController
   def update
     respond_to do |format|
       if @monitorium.update(monitorium_params)
-        format.html { redirect_to @monitorium, notice: 'Monitorium was successfully updated.' }
+        format.html { redirect_to @monitorium, notice: 'Monitoria atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @monitorium }
       else
         format.html { render :edit }
@@ -79,7 +61,7 @@ class MonitoriaController < ApplicationController
   def destroy
     @monitorium.destroy
     respond_to do |format|
-      format.html { redirect_to monitoria_url, notice: 'Monitorium was successfully destroyed.' }
+      format.html { redirect_to monitoria_url, notice: 'Monitoria apagada com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -92,6 +74,6 @@ class MonitoriaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def monitorium_params
-      params.require(:monitorium).permit(:utilizador_id, :local, :disciplina_id)
+      params.require(:monitorium).permit(:monitor, :local, :data, :inicio, :fim, :disciplina_id)
     end
 end

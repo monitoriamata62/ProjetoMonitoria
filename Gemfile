@@ -40,7 +40,9 @@ gem 'rails-i18n'
 
 gem 'bootstrap-sass'
 gem 'compass-rails'
-
+gem 'devise'
+gem 'pundit'
+gem 'devise-i18n'
 
 
 group :development, :test do

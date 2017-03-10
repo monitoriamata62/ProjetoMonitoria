@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-
+<div id="main-container" class="container" style="text-align: left">
+  <div class="row">
 <h1>Unidades</h1>
 
 <%= form_tag(unidades_path, :method => :get) do %>
@@ -20,7 +21,7 @@
       <tr>
         <td><%= unidade.descricao %></td>
         <td><%= unidade.area.descricao %></td>
-        <td><%= link_to 'Disciplinas', unidade_disciplinas_path(unidade.id) %></td>
+        <td><div class="btn btn-default"><%= link_to 'Disciplinas', unidade_disciplinas_path(unidade.id),  style: "color: dark blue;"%></div></td>
        </tr>
     <% end %>
   </tbody>
@@ -28,4 +29,7 @@
 
 <br>
 
-<div class="btn btn-primary"> <%= link_to 'Voltar', :back, {:style=>'color:#FFFFFF;', :class => "css_class"} %> </div>
+<div class="btn btn-primary"> <%= link_to 'Voltar', :back, style: "color: white;" %> </div>
+
+  </div>
+</div>

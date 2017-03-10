@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <html lang="pt-br">
-  
+<div id="main-container" class="container" style="text-align: left">
+  <div class="row">
 <%= form_tag(areas_path, :method => :get) do %>
   <%= text_field_tag 'search', nil, placeholder: 'Digite a área' %>
   <%= submit_tag "Pesquisar" %>
@@ -18,19 +19,26 @@
   </thead>
 
   <tbody>
+    
     <% @areas.each do |area| %>
       <tr>
         <td><%= area.descricao %></td>
-        <td><%= link_to 'Unidades', area_unidades_path(area.id)%></td>
+  
+        <td><div class="btn btn-default"><%= link_to 'Unidades', area_unidades_path(area.id),  style: "color: dark blue;"%></div></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<div class="btn btn-primary"> <%= link_to 'Unidades', unidades_path, {:style=>'color:#FFFFFF;', :class => "css_class"} %></div>
-<div class="btn btn-primary"> <%= link_to 'Disciplinas', disciplinas_path, {:style=>'color:#FFFFFF;', :class => "css_class"} %> </div>
-<div class="btn btn-primary"><%= link_to 'Login', utilizadors_path, {:style=>'color:#FFFFFF;', :class => "css_class"} %></div>
-
+<div class="btn btn-primary"> <%= link_to 'Unidades', unidades_path, style: "color: white;" %></div>
+<div class="btn btn-primary"> <%= link_to 'Disciplinas', disciplinas_path, style: "color: white;" %> </div>
+<div class="btn btn-primary"> <%= link_to 'Monitorias', monitoria_path, style: "color: white;" %> </div>
+<% if user_signed_in? %>
+  <div class="btn btn-primary"><%= link_to 'Sair', destroy_user_session_path, method: :delete, style: "color: white;"%></div>
+<% else %>
+  <div class="btn btn-primary"><%= link_to 'Login', new_user_session_path, style: "color: white;"%></div>
+<% end %>
+    </div>
+ </div>
 <!--colocar o back futuramente-->
