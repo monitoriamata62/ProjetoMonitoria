@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DisciplinasControllerTest <  ActionController::TestCase
+class DisciplinasControllerTest <   ActionDispatch::IntegrationTest
   #include Devise::Test::ControllerHelpers
   setup do
     @disciplina = disciplinas(:one)

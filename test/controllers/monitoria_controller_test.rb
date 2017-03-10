@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MonitoriaControllerTest <  ActionController::TestCase
+class MonitoriaControllerTest <   ActionDispatch::IntegrationTest
   #include Devise::Test::ControllerHelpers
   setup do
     @monitorium = monitoria(:one)
