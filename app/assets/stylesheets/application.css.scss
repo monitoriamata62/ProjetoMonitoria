@@ -13,4 +13,26 @@
  *= require_tree .
  *= require_self
  */
+ 
+.navbar-header{
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.navbar-header:hover {
+    //background-color: #4CAF50;
+    background-color: #1E90FF;
+}
+
+.navbar-brand {
+    background-color: #333;
+}
+
+
+
+
+
 

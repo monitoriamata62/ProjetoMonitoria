@@ -12,13 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :descricao %>
-    <%= f.text_field :descricao %>
+    <%= f.label :unidade_id %>
+     <%# f.select :unidade_id, options_for_select(Unidade.all.map{|s|[s.descricao, s.id]}) %>
+     <%= f.select :unidade_id, options_for_select(Unidade.order(:descricao).map{|s|[s.descricao, s.id]}) %>
   </div>
 
   <div class="field">
-    <%= f.label :unidade_id %>
-     <%= f.select :unidade_id, options_for_select(Unidade.all.map{|s|[s.descricao, s.id]}) %>
+    <%= f.label :nome %>
+    <%= f.text_field :descricao %>
   </div>
 
   <div class="field">

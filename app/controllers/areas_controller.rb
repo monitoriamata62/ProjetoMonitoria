@@ -7,7 +7,7 @@ class AreasController < ApplicationController
     if params[:search]
       @areas = Area.where("descricao like ?", "%#{params[:search]}%")
     else
-      @areas = Area.order(:descricao)
+      @areas = Area.order(:descricao).paginate(:page => params[:page], :per_page => 10)
     end
   end
 

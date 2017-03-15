@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="background: rgb(70, 130, 180); color: rgb(0, 0, 0);">
     
     <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -20,7 +20,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to 'Monitorias UFBA', root_path, class: 'navbar-brand' %>
+      
+      <%= link_to 'Sistema Integrado de Monitoria UFBA', root_path, class: 'navbar-brand', style: "color: #DCDCDC;" %>
+      <%= link_to 'Unidades', unidades_path, class: 'navbar-brand', style: "color: #DCDCDC;" %>
+      <%= link_to 'Disciplinas', disciplinas_path, class: 'navbar-brand', style: "color: #DCDCDC;" %>
+      <%= link_to 'Monitorias', monitoria_path, class: 'navbar-brand', style: "color: #DCDCDC;" %>
+
+      <% if user_signed_in? %>
+        <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'navbar-brand', style: "color: #DCDCDC;" %>
+      <% else %>
+        <%= link_to 'Logar', new_user_session_path, class: 'navbar-brand', style: "color: #DCDCDC;" %>
+      <% end %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

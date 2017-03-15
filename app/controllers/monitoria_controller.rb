@@ -7,7 +7,7 @@ class MonitoriaController < ApplicationController
     if params[:search]
       @monitoria = Monitorium.where("monitor like ?", "%#{params[:search]}%")
     else
-      @monitoria = Monitorium.order(:monitor)
+      @monitoria = Monitorium.order(:monitor).paginate(:page => params[:page], :per_page => 10)
     end
   end
   

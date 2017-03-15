@@ -6,9 +6,9 @@ class DisciplinasController < ApplicationController
   def index
     if params[:unidade_id].present?
       lId_parametro = params.require(:unidade_id)
-      @disciplinas = Disciplina.where(unidade: lId_parametro)
+      @disciplinas = Disciplina.where(unidade: lId_parametro).order(:descricao).paginate(:page => params[:page], :per_page => 3)
     else
-      @disciplinas = Disciplina.order(:descricao)
+      @disciplinas = Disciplina.order(:descricao).paginate(:page => params[:page], :per_page => 10)
     end
   end
 
