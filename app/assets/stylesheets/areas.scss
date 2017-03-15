@@ -2,8 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.btn-default{
-    position:relative;
-    margin-left:15px;
+.Conteudo{
+  margin:0 auto;
+  width:900px;
+  text-align:center;
+}
+.Conteudo table{
+  margin:0 auto;
+  margin-top:80px;
+}
+.Conteudo td{
+  padding:10px;
+}
+
+
+.Fonte{
+  color: #3A539B; font-family: 'Rouge Script', cursive; font-size: 50px; font-weight: normal; line-height: 48px; margin: 0 0 50px; text-align: center; text-shadow: 1px 1px 2px #082b34; margin-top:50px;
 }
 

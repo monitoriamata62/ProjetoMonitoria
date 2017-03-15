@@ -13,26 +13,119 @@
  *= require_tree .
  *= require_self
  */
- 
+
 .navbar-header{
-    display: block;
-    color: white;
-    text-align: center;
-    text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
 }
 
 /* Change the link color to #111 (black) on hover */
 .navbar-header:hover {
-    //background-color: #4CAF50;
-    background-color: #1E90FF;
+  //background-color: #4CAF50;
+  background-color: #1E90FF;
 }
 
 .navbar-brand {
-    background-color: #333;
+  background-color: #333;
 }
 
 
 
 
 
+
+.MenuAplicacao{
+  background-color:#22313F;
+  transition:all 0.2s linear;
+  color:#FFF;
+  text-align:center;
+  box-shadow:4px 4px 5px #6C7A89;
+  border:none;
+  border-radius:0;
+}
+.MenuAplicacao:hover{
+  background-color:#3A539B;
+  transition:all 0.2s linear;
+
+}
+.ItemMenu{
+  transition:all 0.2s linear;
+  padding-right:20px;
+  padding-left:20px;
+}
+.ItemMenu:hover{
+  border-bottom:5px solid #22313F;
+  transition:all 0.2s linear;
+}
+.MenuAplicacao a{
+  color:#FFF !important;
+  text-decoration:none !important;
+}
+.login{
+  float:right;
+}
+
+.login:hover{
+  border-bottom:5px solid #22313F;
+  transition:all 0.2s linear;
+}
+
+body{
+  background:#EEEEEE;
+
+}
+.botaoPadrao{
+  background:#22313F;
+  padding:8px;
+  border-radius:3px;
+  color:#FFF;
+  cursor:pointer;
+  text-decoration:none;
+  transition:all 0.2s linear;
+}
+.botaoPadrao:hover{
+  background:#3A539B;
+  color:#FFF;
+  text-decoration:none;
+  transition:all 0.2s linear;
+  border-radius:5px;
+}
+
+
+.AbaInferior {
+  background: #22313F;
+  color: #FFF;
+  position:absolute;
+  bottom:0;
+  width:100%;
+  padding-bottom: 10px;
+}
+.AbaInferior:hover{
+  background-color:#3A539B;
+  transition:all 0.2s linear;
+}
+
+
+.Rodape{
+  max-width:1350px !important;
+  margin:0 auto;
+}
+
+.Direita{
+  padding-top:10px;
+  float:right;
+}
+
+.Esquerda{
+  padding-top:10px;
+  float:left;
+}
+
+.ConteudoCentro{
+  position:absolute;
+  padding-right:15px;
+  padding-top:10px !important;
+}
 

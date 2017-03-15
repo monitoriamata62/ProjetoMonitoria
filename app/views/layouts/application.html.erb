@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ProjetoMonitoria</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Monitoria UFBA</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body style="background: rgb(70, 130, 180); color: rgb(0, 0, 0);">
-    
-    <nav class="navbar navbar-default">
+<body style="background: rgb(70, 130, 180); color: rgb(0, 0, 0);">
+
+<nav class="navbar navbar-default MenuAplicacao">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- Brand and toggle get grouped for better mobile display
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -20,29 +20,46 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      
-      <%= link_to 'Sistema Integrado de Monitoria UFBA', root_path, class: 'navbar-brand', style: "color: #DCDCDC;" %>
-      <%= link_to 'Unidades', unidades_path, class: 'navbar-brand', style: "color: #DCDCDC;" %>
-      <%= link_to 'Disciplinas', disciplinas_path, class: 'navbar-brand', style: "color: #DCDCDC;" %>
-      <%= link_to 'Monitorias', monitoria_path, class: 'navbar-brand', style: "color: #DCDCDC;" %>
 
-      <% if user_signed_in? %>
-        <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'navbar-brand', style: "color: #DCDCDC;" %>
-      <% else %>
-        <%= link_to 'Logar', new_user_session_path, class: 'navbar-brand', style: "color: #DCDCDC;" %>
-      <% end %>
-    </div>
+    </div>-->
+    <%= link_to 'Monitoria - UFBA', root_path, class: 'navbar-brand',style: "padding-right: 5%;"  %>
+    <%= link_to 'Unidades', unidades_path, class: 'navbar-brand ItemMenu' %>
+    <%= link_to 'Disciplinas', disciplinas_path, class: 'navbar-brand ItemMenu' %>
+    <%= link_to 'Monitorias', monitoria_path, class: 'navbar-brand ItemMenu' %>
+
+    <% if user_signed_in? %>
+        <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'navbar-brand login' %>
+    <% else %>
+        <%= link_to 'Login', new_user_session_path, class: 'navbar-brand login'%>
+    <% end %>
+
+
+
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-     
+
       <ul class="nav navbar-nav navbar-right">
-       
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-  
-    <%= yield %>
-  </body>
+
+<%= yield %>
+
+
+
+<footer class="footer AbaInferior Teste">
+  <div class="row">
+    <div class="small-4 columns footer-area">
+      <div class="Rodape">
+        <span class="text Esquerda"><a href="mailto:monitoriamata62@gmail.com" style="color: #FFF">Sugestões</a></span>
+        <span class="text Direita"><a href="https://github.com/monitoriamata62/ProjetoMonitoria" style="color: #FFF">GitHub</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
