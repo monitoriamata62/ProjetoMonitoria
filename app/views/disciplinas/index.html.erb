@@ -11,18 +11,19 @@
           <% @disciplinas.each do |disciplina| %>
         <tr>
            
-          <td><div class="botaoPadrao"><%= link_to disciplina.descricao + ':   ' +  disciplina.sigla , disciplina_path(disciplina.id),  style: "color:#FFF;"%></div></td>
+          <td><div class="botaoPadrao Espaco"><%= link_to disciplina.sigla + ':   ' + disciplina.descricao, disciplina_monitoria_path(disciplina.id),  style: "color: #FFF;"%></div></td>
+          <td><div class="botaoPadrao Espaco"><%= link_to 'Detalhes', disciplina_path(disciplina.id), style: "color: #FFF;"%></div></td>
+          <td><div class="botaoPadrao Espaco"><%= link_to 'Editar', edit_disciplina_path(disciplina), style: "color: #FFF;" %></div></td>
+          <td><div class="botaoPadrao Espaco"><%= link_to 'Excluir', disciplina, method: :delete, data: { confirm: 'Certeza que quer deletar essa disciplina?' }, style: "color: #FFF;" %></div></td>
           
        
         <% end %>
          
         </tbody>  
-       <td><div class="botaoPadrao"><%= link_to 'Nova Displina', new_disciplina_path, style: "color: #FFF;" %></div></td>
        
         </tr>
-       
       </table>
-       
+       <td><div class="btn btn-default btn-lg"><%= link_to 'Nova Displina', new_disciplina_path, style: "color: black;" %></div></td>
   </div>
  
 </div>

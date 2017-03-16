@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   end
 
   resources :disciplinas do
+    resources :monitoria
     end
 
   #URL/CONTROLADOR/AÇÂO/O QUE SERÀ FEITO

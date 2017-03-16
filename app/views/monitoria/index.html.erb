@@ -1,35 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Monitorias</h1>
+<html lang="pt-br">
+<div id="main-container" class="container" style="text-align: left">
+  <div class="row">
 
-<table>
-  <thead>
-    <tr>
-      <th>Monitor</th>
-      <th>Professor</th>
-      <th>Disciplina</th>
-      <th>Data</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="Conteudo">
+      <h1 class="Fonte">Monitorias</h1>
 
-  <tbody>
-    <% @monitoria.each do |monitorium| %>
-      <tr>
-        <td><%= monitorium.monitor.name %></td>
-        <td><%= monitorium.professor.name %></td>
-        <td><%= monitorium.disciplina.descricao %></td>
-        <td><%= monitorium.data %></td>
-        <td><%= link_to 'Agendar', agendar_monitorium_path(monitorium),  data: { confirm: 'Certeza que gostaria de agendar essa monitoria?' } %></td>
-        <td><%= link_to 'Cancelar Agendamento', cancelar_monitorium_path(monitorium),  data: { confirm: 'Certeza que gostaria de cancelar o agendamento dessa aula?' } %></td>
-        <td><%= link_to 'Detalhes', monitorium %></td>
-        <td><%= link_to 'Editar', edit_monitorium_path(monitorium) %></td>
-        <td><%= link_to 'Apagar', monitorium, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <table class="TabelaMonitorias">
+        
+        <thead>
+          <tr>
+            <th><strong>DATA</strong></th>
+            <th><strong>MONITOR</strong></th>
+            <th><strong>PROFESSOR</strong></th>
+            <th><strong>DISCIPLINA</strong></th>
+            
+          </tr>
+        </thead>
+
+
+        <tbody>
+
+        <% @monitoria.each do |monitorium| %>
+            <tr>
+            <td><strong><%= monitorium.data %></strong></td>
+            <td><%= monitorium.monitor.name %></td>
+            <td><%= monitorium.professor.name %></td>
+            <td><%= monitorium.disciplina.sigla %></td>
+            <td><%= link_to 'Detalhes', monitorium %></td>
+            <td><%= link_to 'Agendar', agendar_monitorium_path(monitorium),  data: { confirm: 'Certeza que gostaria de agendar essa monitoria?' } %></td>
+            <td><%= link_to 'Editar', edit_monitorium_path(monitorium) %></td>
+            <td><%= link_to 'Excluir', monitorium, method: :delete, data: { confirm: 'Certeza que quer cancelar essa monitoria?' } %></td>
+            <td><%= link_to 'Cancelar Agendamento', cancelar_monitorium_path(monitorium),  data: { confirm: 'Certeza que gostaria de cancelar o agendamento dessa aula?' } %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+       <div class="btn btn-default btn-lg"> <%= link_to 'Nova Monitoria', new_monitorium_path, style: "color: black;" %></div>
+    </div>
+  </div>
+</div>
 
 <br>
 
-<%= link_to 'New Monitorium', new_monitorium_path %>
