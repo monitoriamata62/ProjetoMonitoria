@@ -14,7 +14,7 @@
 
         <% @areas.each do |area| %>
             <tr>
-              <td><%= link_to area.descricao, area_unidades_path(area.id),  class:'botaoPadrao' %></td>
+            <td><div class="botaoPadrao"><%= link_to area.descricao, area_unidades_path(area.id),  style: "color:#FFFF;"%></div></td>
             </tr>
         <% end %>
         </tbody>
