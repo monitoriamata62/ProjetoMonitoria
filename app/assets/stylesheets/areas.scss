@@ -1,6 +1,14 @@
 // Place all the styles related to the areas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@font-face {
+  font-family: helveticaneue;
+  src: url('https://fonts.googleapis.com/css?family=Indie+Flower');
+}
+
+.Fonte{
+  font-family: 'Indie Flower', cursive;
+}
 
 .Conteudo{
   margin:0 auto;
@@ -16,7 +24,4 @@
 }
 
 
-.Fonte{
-  color: #3A539B; font-family: 'Rouge Script', cursive; font-size: 50px; font-weight: normal; line-height: 48px; margin: 0 0 50px; text-align: center; text-shadow: 1px 1px 2px #082b34; margin-top:50px;
-}
 

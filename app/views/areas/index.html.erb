@@ -5,7 +5,7 @@
   <div class="row">
 
     <div class="Conteudo">
-      <h1>Áreas</h1>
+      <h1 class="Fonte">Áreas</h1>
 
       <table class="TabelaAreas">
 
@@ -14,8 +14,7 @@
 
         <% @areas.each do |area| %>
             <tr>
-              <td><%= area.descricao%></td>
-              <td><%= link_to 'Unidades', area_unidades_path(area.id),  class:'botaoPadrao' %></td>
+              <td><%= link_to area.descricao, area_unidades_path(area.id),  class:'botaoPadrao' %></td>
             </tr>
         <% end %>
         </tbody>

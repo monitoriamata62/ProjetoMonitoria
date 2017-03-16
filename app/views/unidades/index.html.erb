@@ -1,37 +1,26 @@
 <p id="notice"><%= notice %></p>
+
+<html lang="pt-br">
 <div id="main-container" class="container" style="text-align: left">
   <div class="row">
-<h1>Unidades</h1>
 
-<%= form_tag(unidades_path, :method => :get) do %>
-  <%= text_field_tag 'search', nil, placeholder: 'Digite a unidade' %>
-  <%= submit_tag "Pesquisar" %>
-<% end %>
-<table>
-  <thead>
-    <tr>
-      <th>Descricao</th>
-      <th>Area</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="Unidade">
+      <h1>Unidades</h1>
+      <table>
+        <tbody>
+          <% @unidades.each do |unidade| %>
+        <tr>
+          <td><div class="botaoPadrao Espaco"><%= link_to unidade.descricao + ':   ' + unidade.area.descricao , unidade_disciplinas_path(unidade.id),  style: "color:#FFFF;"%></div></td>
+        </tr>
+      <% end %>
+        </tbody>
+      </table>
+    <%= will_paginate @unidades %>
+  </div>
 
-  <tbody>
-    <% @unidades.each do |unidade| %>
-      <tr>
-        <td><%= unidade.descricao %></td>
-        <td><%= unidade.area.descricao %></td>
-        <td><div class="btn btn-default"><%= link_to 'Disciplinas', unidade_disciplinas_path(unidade.id),  style: "color: dark blue;"%></div></td>
-       </tr>
-    <% end %>
-  </tbody>
-</table>
+
 
 <br>
-
-<div class="btn btn-primary"> <%= link_to 'Voltar', :back, style: "color: white;" %> </div>
-
   </div>
 </div>
 
-<%= will_paginate @unidades %>

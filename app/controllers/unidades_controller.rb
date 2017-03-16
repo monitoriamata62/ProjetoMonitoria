@@ -6,7 +6,7 @@ class UnidadesController < ApplicationController
   def index
     if params[:area_id].present?
       lId_parametro = params.require(:area_id)
-      @unidades = Unidade.where(area: lId_parametro).order(:descricao).paginate(:page => params[:page], :per_page => 3)
+      @unidades = Unidade.where(area: lId_parametro).order(:descricao).paginate(:page => params[:page], :per_page => 10)
     else
       if params[:search]
         @areas = Unidade.where("descricao like ?", "%#{params[:search]}%")
