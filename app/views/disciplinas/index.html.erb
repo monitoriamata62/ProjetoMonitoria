@@ -1,35 +1,32 @@
 <p id="notice"><%= notice %></p>
+
+<html lang="pt-br">
 <div id="main-container" class="container" style="text-align: left">
   <div class="row">
-<h1>Disciplinas</h1>
-
-<table>
-  <thead>
-  <tr>
-    <th>Descricao</th>
-    <th>Sigla</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <div class="col-lg-11 col-centered"> 
-  <% @disciplinas.each do |disciplina| %>
-      <tr>
-        <td><%= disciplina.descricao %></td>
-        <td><%= disciplina.sigla %></td>
-        <td><%= link_to 'Detalhes', disciplina_path(disciplina.id)%></td>
-        <td><%= link_to 'Editar', edit_disciplina_path(disciplina) %></td>
-        <td><%= link_to 'Excluir', disciplina, method: :delete, data: { confirm: 'Certeza que quer deletar essa disciplina?' } %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<br>
-<div class="btn btn-primary"> <%= link_to 'Nova Disciplina', new_disciplina_path, style: "color: white;" %></div>
-<div class="btn btn-primary"> <%= link_to 'Voltar', areas_path, style: "color: white;" %> </div> </div>
+    
+     <div class="Disciplina">
+      <h1>Disciplinas</h1>
+      <table>
+        <tbody>
+          <% @disciplinas.each do |disciplina| %>
+        <tr>
+           
+          <td><div class="botaoPadrao"><%= link_to disciplina.descricao + ':   ' +  disciplina.sigla , disciplina_path(disciplina.id),  style: "color:#FFF;"%></div></td>
+          
+       
+        <% end %>
+         
+        </tbody>  
+       <td><div class="botaoPadrao"><%= link_to 'Nova Displina', new_disciplina_path, style: "color: #FFF;" %></div></td>
+       
+        </tr>
+       
+      </table>
+       
   </div>
+ 
+</div>
+
 </div>
 
 <%= will_paginate @disciplinas %>

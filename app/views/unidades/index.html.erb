@@ -10,15 +10,13 @@
         <tbody>
           <% @unidades.each do |unidade| %>
         <tr>
-          <td><div class="botaoPadrao Espaco"><%= link_to unidade.descricao + ':   ' + unidade.area.descricao , unidade_disciplinas_path(unidade.id),  style: "color:#FFFF;"%></div></td>
+          <td><div class="botaoPadrao Espaco"><%= link_to unidade.descricao + ':   ' + unidade.area.descricao , unidade_disciplinas_path(unidade.id),  style: "color:#FFF;"%></div></td>
         </tr>
       <% end %>
         </tbody>
       </table>
     <%= will_paginate @unidades %>
   </div>
-
-
 
 <br>
   </div>
