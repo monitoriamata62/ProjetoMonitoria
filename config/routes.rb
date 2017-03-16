@@ -1,11 +1,24 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  resources :instrutors
   resources :monitoria
+  devise_for :users
   root to: redirect('/areas')
 
   resources :disciplinas
   resources :unidades
+  
+  resources :monitoria do
+    member do
+      get 'agendar'
+    end
+  end
+  
+  resources :monitoria do
+    member do
+      get 'cancelar'
+    end
+  end
   
    #Relacionamentos:
 

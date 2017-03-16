@@ -1,7 +1,6 @@
 require 'test_helper'
 
-class MonitoriaControllerTest <   ActionDispatch::IntegrationTest
-  #include Devise::Test::ControllerHelpers
+class MonitoriaControllerTest < ActionDispatch::IntegrationTest
   setup do
     @monitorium = monitoria(:one)
   end
@@ -18,7 +17,7 @@ class MonitoriaControllerTest <   ActionDispatch::IntegrationTest
 
   test "should create monitorium" do
     assert_difference('Monitorium.count') do
-      post monitoria_url, params: { monitorium: { data: @monitorium.data, disciplina_id: @monitorium.disciplina_id, fim: @monitorium.fim, inicio: @monitorium.inicio, local: @monitorium.local, monitor: @monitorium.monitor } }
+      post monitoria_url, params: { monitorium: { data: @monitorium.data, disciplina_id: @monitorium.disciplina_id, horario: @monitorium.horario, local: @monitorium.local, monitor_id: @monitorium.monitor_id, professor_id: @monitorium.professor_id } }
     end
 
     assert_redirected_to monitorium_url(Monitorium.last)
@@ -35,7 +34,7 @@ class MonitoriaControllerTest <   ActionDispatch::IntegrationTest
   end
 
   test "should update monitorium" do
-    patch monitorium_url(@monitorium), params: { monitorium: { data: @monitorium.data, disciplina_id: @monitorium.disciplina_id, fim: @monitorium.fim, inicio: @monitorium.inicio, local: @monitorium.local, monitor: @monitorium.monitor } }
+    patch monitorium_url(@monitorium), params: { monitorium: { data: @monitorium.data, disciplina_id: @monitorium.disciplina_id, horario: @monitorium.horario, local: @monitorium.local, monitor_id: @monitorium.monitor_id, professor_id: @monitorium.professor_id } }
     assert_redirected_to monitorium_url(@monitorium)
   end
 

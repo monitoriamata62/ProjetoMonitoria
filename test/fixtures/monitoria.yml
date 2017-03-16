@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  monitor: MyString
-  local: MyString
-  data: MyString
-  inicio: MyString
-  fim: MyString
+  monitor: one
+  professor: one
   disciplina: one
+  local: MyString
+  data: 2017-03-16
+  horario: MyString
 
 two:
-  monitor: MyString
-  local: MyString
-  data: MyString
-  inicio: MyString
-  fim: MyString
+  monitor: two
+  professor: two
   disciplina: two
+  local: MyString
+  data: 2017-03-16
+  horario: MyString

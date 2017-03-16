@@ -26,6 +26,7 @@
     <%= link_to 'Unidades', unidades_path, class: 'navbar-brand ItemMenu' %>
     <%= link_to 'Disciplinas', disciplinas_path, class: 'navbar-brand ItemMenu' %>
     <%= link_to 'Monitorias', monitoria_path, class: 'navbar-brand ItemMenu' %>
+    <%= link_to 'Monitores', instrutors_path, class: 'navbar-brand ItemMenu' %>
 
     <% if user_signed_in? %>
         <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'navbar-brand login' %>

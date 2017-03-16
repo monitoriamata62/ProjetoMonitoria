@@ -12,8 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :monitor %>
-    <%= f.text_field :monitor %>
+    <%= f.label :monitor_id %>
+    <%= f.select :monitor_id, options_for_select(User.where(role: 'monitor').map{|s|[s.name, s.id]}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :professor_id %>
+    <%= f.select :professor_id, options_for_select(User.where(role: 'professor').map{|s|[s.name, s.id]}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :disciplina_id %>
+    <%= f.select :disciplina_id, options_for_select(Disciplina.order(:descricao).map{|s|[s.descricao, s.id]}) %>
   </div>
 
   <div class="field">
@@ -23,23 +33,19 @@
 
   <div class="field">
     <%= f.label :data %>
-    <%= f.text_field :data %>
+    <%= f.date_select :data %>
   </div>
 
   <div class="field">
-    <%= f.label :inicio %>
-    <%= f.text_field :inicio %>
+    <%= f.label :horario %>
+    <%= f.text_field :horario %>
   </div>
-
-  <div class="field">
-    <%= f.label :fim %>
-    <%= f.text_field :fim %>
+  
+   <div class="field">
+    <%= f.label :capacidade %>
+    <%= f.number_field :capacidade %>
   </div>
-
-  <div class="field">
-    <%= f.label :disciplina_id %>
-    <%= f.select :disciplina_id, options_for_select(Disciplina.all.map{|s|[s.descricao, s.id]}) %>
-  </div>
+  
 
   <div class="actions">
     <%= f.submit %>

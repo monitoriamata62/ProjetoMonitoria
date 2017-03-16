@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310133345) do
+ActiveRecord::Schema.define(version: 20170316171435) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "descricao"
@@ -27,16 +27,27 @@ ActiveRecord::Schema.define(version: 20170310133345) do
     t.index ["unidade_id"], name: "index_disciplinas_on_unidade_id"
   end
 
+  create_table "instrutors", force: :cascade do |t|
+    t.integer  "nome_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nome_id"], name: "index_instrutors_on_nome_id"
+  end
+
   create_table "monitoria", force: :cascade do |t|
-    t.string   "monitor"
-    t.string   "local"
-    t.string   "data"
-    t.string   "inicio"
-    t.string   "fim"
+    t.integer  "monitor_id"
+    t.integer  "professor_id"
     t.integer  "disciplina_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "local"
+    t.date     "data"
+    t.string   "horario"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "capacidade"
+    t.integer  "capacidadeatual"
     t.index ["disciplina_id"], name: "index_monitoria_on_disciplina_id"
+    t.index ["monitor_id"], name: "index_monitoria_on_monitor_id"
+    t.index ["professor_id"], name: "index_monitoria_on_professor_id"
   end
 
   create_table "unidades", force: :cascade do |t|
@@ -61,6 +72,7 @@ ActiveRecord::Schema.define(version: 20170310133345) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "role",                   default: 0
+    t.string   "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

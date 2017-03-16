@@ -1,20 +1,14 @@
 <p id="notice"><%= notice %></p>
-<div id="main-container" class="container" style="text-align: left">
-  <div class="row">
-<%= form_tag(monitoria_path, :method => :get) do %>
-  <%= text_field_tag 'search', nil, placeholder: 'Digite o monitor' %>
-  <%= submit_tag "Pesquisar" %>
-<% end %>
-<h1>Monitoria</h1>
+
+<h1>Monitorias</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Monitor</th> 
-      <th>Data</th>
-      <th>Inicio</th>
-      <th>Fim</th>
+      <th>Monitor</th>
+      <th>Professor</th>
       <th>Disciplina</th>
+      <th>Data</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,25 +16,20 @@
   <tbody>
     <% @monitoria.each do |monitorium| %>
       <tr>
-        <td><%= monitorium.monitor %></td>
+        <td><%= monitorium.monitor.name %></td>
+        <td><%= monitorium.professor.name %></td>
+        <td><%= monitorium.disciplina.descricao %></td>
         <td><%= monitorium.data %></td>
-        <td><%= monitorium.inicio %></td>
-        <td><%= monitorium.fim %></td>
-        <td><%= monitorium.disciplina.sigla %></td>
-        <td><%= link_to 'Destalhes', monitorium %></td>
+        <td><%= link_to 'Agendar', agendar_monitorium_path(monitorium),  data: { confirm: 'Certeza que gostaria de agendar essa monitoria?' } %></td>
+        <td><%= link_to 'Cancelar Agendamento', cancelar_monitorium_path(monitorium),  data: { confirm: 'Certeza que gostaria de cancelar o agendamento dessa aula?' } %></td>
+        <td><%= link_to 'Detalhes', monitorium %></td>
         <td><%= link_to 'Editar', edit_monitorium_path(monitorium) %></td>
-        <td><%= link_to 'Apagar', monitorium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Apagar', monitorium, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<div class="btn btn-primary"> <%= link_to 'Nova Monitoria', new_monitorium_path, style: "color: white;" %> </div>
 
-<div class="btn btn-primary"> <%= link_to 'Voltar', :back, style: "color: white;" %> </div>
-
-  </div>
-</div>
-
-<%= will_paginate @monitorium %>
+<%= link_to 'New Monitorium', new_monitorium_path %>

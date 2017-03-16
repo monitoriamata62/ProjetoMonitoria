@@ -1,16 +1,12 @@
 class MonitoriaController < ApplicationController
   before_action :set_monitorium, only: [:show, :edit, :update, :destroy]
-  #before_action :authenticate_user!, :except => [:show, :index]
+
   # GET /monitoria
   # GET /monitoria.json
   def index
-    if params[:search]
-      @monitoria = Monitorium.where("monitor like ?", "%#{params[:search]}%")
-    else
-      @monitoria = Monitorium.order(:monitor).paginate(:page => params[:page], :per_page => 10)
-    end
+     @monitoria = Monitorium.order(:data).paginate(:page => params[:page], :per_page => 10)
   end
-  
+
   # GET /monitoria/1
   # GET /monitoria/1.json
   def show
@@ -19,7 +15,6 @@ class MonitoriaController < ApplicationController
   # GET /monitoria/new
   def new
     @monitorium = Monitorium.new
-  
   end
 
   # GET /monitoria/1/edit
@@ -30,10 +25,11 @@ class MonitoriaController < ApplicationController
   # POST /monitoria.json
   def create
     @monitorium = Monitorium.new(monitorium_params)
+    @monitorium.capacidadeatual = @monitorium.capacidade
 
     respond_to do |format|
       if @monitorium.save
-        format.html { redirect_to @monitorium, notice: 'Nova monitoria criada.' }
+        format.html { redirect_to @monitorium, notice: 'Monitorium was successfully created.' }
         format.json { render :show, status: :created, location: @monitorium }
       else
         format.html { render :new }
@@ -47,7 +43,7 @@ class MonitoriaController < ApplicationController
   def update
     respond_to do |format|
       if @monitorium.update(monitorium_params)
-        format.html { redirect_to @monitorium, notice: 'Monitoria atualizada com sucesso.' }
+        format.html { redirect_to @monitorium, notice: 'Monitorium was successfully updated.' }
         format.json { render :show, status: :ok, location: @monitorium }
       else
         format.html { render :edit }
@@ -61,10 +57,43 @@ class MonitoriaController < ApplicationController
   def destroy
     @monitorium.destroy
     respond_to do |format|
-      format.html { redirect_to monitoria_url, notice: 'Monitoria apagada com sucesso.' }
+      format.html { redirect_to monitoria_url, notice: 'Monitoria foi cancelada com sucesso.' }
       format.json { head :no_content }
     end
   end
+  
+  def agendar
+    @monitorium = Monitorium.find(params[:id])
+    if @monitorium.capacidadeatual > 0
+      @monitorium.decrement! :capacidadeatual
+      respond_to do |format|
+        format.html { redirect_to monitoria_url, notice: 'Aula agendada com sucesso.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to monitoria_url, notice: 'Infelizmente essa aula está lotada.' }
+        format.json { head :no_content }
+      end
+    end
+  end
+  
+  def cancelar
+    @monitorium = Monitorium.find(params[:id])
+    if @monitorium.capacidadeatual < @monitorium.capacidade
+      @monitorium.increment! :capacidadeatual
+      respond_to do |format|
+        format.html { redirect_to monitoria_url, notice: 'Agendamento de aula cancelado com sucesso.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to monitoria_url, notice: 'Não existe nenhum agendamento para cancelar.' }
+        format.json { head :no_content }
+      end
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -74,6 +103,6 @@ class MonitoriaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def monitorium_params
-      params.require(:monitorium).permit(:monitor, :local, :data, :inicio, :fim, :disciplina_id)
+      params.require(:monitorium).permit(:monitor_id, :professor_id, :disciplina_id, :local, :data, :horario, :capacidade)
     end
 end
