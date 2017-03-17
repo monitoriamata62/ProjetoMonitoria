@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :instrutors
   resources :monitoria
   devise_for :users
   root to: redirect('/areas')
