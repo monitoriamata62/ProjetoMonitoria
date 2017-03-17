@@ -10,39 +10,11 @@ class MonitoriaControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_monitorium_url
-    assert_response :success
-  end
-
-  test "should create monitorium" do
-    assert_difference('Monitorium.count') do
-      post monitoria_url, params: { monitorium: { data: @monitorium.data, disciplina_id: @monitorium.disciplina_id, horario: @monitorium.horario, local: @monitorium.local, monitor_id: @monitorium.monitor_id, professor_id: @monitorium.professor_id } }
-    end
-
-    assert_redirected_to monitorium_url(Monitorium.last)
-  end
+  
 
   test "should show monitorium" do
     get monitorium_url(@monitorium)
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_monitorium_url(@monitorium)
-    assert_response :success
-  end
-
-  test "should update monitorium" do
-    patch monitorium_url(@monitorium), params: { monitorium: { data: @monitorium.data, disciplina_id: @monitorium.disciplina_id, horario: @monitorium.horario, local: @monitorium.local, monitor_id: @monitorium.monitor_id, professor_id: @monitorium.professor_id } }
-    assert_redirected_to monitorium_url(@monitorium)
-  end
-
-  test "should destroy monitorium" do
-    assert_difference('Monitorium.count', -1) do
-      delete monitorium_url(@monitorium)
-    end
-
-    assert_redirected_to monitoria_url
-  end
 end
