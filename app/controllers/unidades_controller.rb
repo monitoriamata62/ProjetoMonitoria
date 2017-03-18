@@ -9,7 +9,7 @@ class UnidadesController < ApplicationController
       @unidades = Unidade.where(area: lId_parametro).order(:descricao).paginate(:page => params[:page], :per_page => 10)
     else
       if params[:search]
-        @areas = Unidade.where("descricao like ?", "%#{params[:search]}%")
+        @unidades = Unidade.where("descricao like ?", "%#{params[:search]}%").paginate(:page => params[:page], :per_page => 10)
       else
         @unidades = Unidade.order(:descricao).paginate(:page => params[:page], :per_page => 10)
       end

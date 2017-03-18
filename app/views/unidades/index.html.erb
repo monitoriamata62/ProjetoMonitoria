@@ -5,6 +5,12 @@
   <div class="row">
 
   <div class="Unidade">
+    
+    <%= form_tag(unidades_path, :method => :get) do %>
+	<%= text_field_tag 'search', nil, placeholder: 'Digite a unidade' %>
+	<%= submit_tag "Search" %>
+<% end %>
+    
       <h1>Unidades</h1>
       <table>
         <tbody>
