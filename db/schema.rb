@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20170316171435) do
     t.index ["unidade_id"], name: "index_disciplinas_on_unidade_id"
   end
 
-
   create_table "monitoria", force: :cascade do |t|
     t.integer  "monitor_id"
     t.integer  "professor_id"
