@@ -15,6 +15,9 @@ module NavigationHelpers
       when 'New Disciplina'
         new_disciplina_path
 
+      when 'Show Areas'
+        areas_path
+      
       when 'Show Disciplina'
         disciplinas_path(Disciplina.last)
 
@@ -25,8 +28,28 @@ module NavigationHelpers
       when 'Show Unidade'
         unidades_path(Unidade.last)
 
+      when 'New User'
+        new_user_registration_path
+        
+        
+      when 'Areas'
+        areas_path
+
+    
+      when 'Area'
+        root_path
+
+      
+      when 'Unidade'
+        unidades_path
 
 
+      when 'Disciplina'
+        disciplinas_path
+        
+
+      when 'Login'
+        new_user_session_path
 
 
 

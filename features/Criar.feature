@@ -10,12 +10,24 @@ Funcionalidade: Criar
  # E eu preencher o "Sigla" com "MATA00"
 #  E eu clicar no botão "Criar Disciplina"
 #  Então eu devo estar na página "Show Disciplina"
-
-
-  Cenário: CriarUnidade
-
-    Dado que eu estou na página "New Unidade"
-    Quando eu preencher o "Descricao" com "UNIDADETESTE"
-    Quando eu preencher o "Area" com "1"
-    E eu clicar no botão "Criar Unidade"
-    Então eu devo estar na página "Show Unidade"
+    
+    
+    Cenario: Navegar
+    
+    Quando eu for para a página "Area"
+    Quando eu clicar no link "Unidades"
+    Entao eu devo estar na página "Unidade"
+    
+    
+    Cenario: Navegartwo
+    
+    Dado que eu estou na página "Area"
+    Quando eu clicar no link "Disciplinas"
+    Então eu devo estar na página "Disciplina"
+    
+    
+    Cenario: NavegarThree
+    
+    Dado que eu estou na página "Disciplina"
+    Quando eu clicar no link "Nova Disciplina"
+    Então eu devo estar na página "Login"

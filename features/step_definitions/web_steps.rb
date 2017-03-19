@@ -39,6 +39,28 @@ Quando /^eu preencher o campo "([^\"]*)" com "([^\"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
 
+
+
+Dado (/^que estou na home page$/) do
+ visit root_path
+end
+
+Quando(/^Quando eu clicar no primeiro link$/) do
+ click_on "click1"
+end
+
+Entao(/^ eu devo ver a confirmação do clique$/) do
+ expect(page).to have_content("Link Clicked")
+end
+
+
+
+
+
+
+
+
+
 # Use this to fill in an entire form with data from a table. Example:
 #
 #   Quando I fill in the following:
