@@ -14,9 +14,21 @@
  *= require_self
  */
 
+body{
+  margin:0;
+  padding:0;
+  height:100%;
+  width:100%;
+  
+}
 
+.All{
+  width:100%;
+  height:100%;
+  min-height:100%;
+  position:relative;
 
-
+}
   .MenuAplicacao{
   background-color:#22313F;
   transition:all 0.2s linear;
@@ -75,33 +87,25 @@ body{
 }
 
 
-.AbaInferior {
+footer {
   background: #22313F;
   color: #FFF;
-  position:absolute;
+  position:relative;
   bottom:0;
   width:100%;
-  padding-bottom: 10px;
-}
-.AbaInferior:hover{
-  background-color:#3A539B;
-  transition:all 0.2s linear;
-}
-
-
-.Rodape{
-  max-width:1350px !important;
-  margin:0 auto;
+  height:50px;
+  padding-top:15px;
+  
 }
 
 .Direita{
-  padding-top:10px;
+  padding-right:10px;
   float:right;
 }
 
 .Esquerda{
-  padding-top:10px;
   float:left;
+  padding-left:10px;
 }
 
 .ConteudoCentro{
@@ -109,4 +113,5 @@ body{
   padding-right:15px;
   padding-top:10px !important;
 }
+
 
