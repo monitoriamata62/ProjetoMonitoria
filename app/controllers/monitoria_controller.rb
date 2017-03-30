@@ -35,7 +35,7 @@ class MonitoriaController < ApplicationController
 
     respond_to do |format|
       if @monitorium.save
-        format.html { redirect_to @monitorium, notice: 'Monitorium was successfully created.' }
+        format.html { redirect_to @monitorium, notice: 'Monitoria criada com sucesso.' }
         format.json { render :show, status: :created, location: @monitorium }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class MonitoriaController < ApplicationController
   def update
     respond_to do |format|
       if @monitorium.update(monitorium_params)
-        format.html { redirect_to @monitorium, notice: 'Monitorium was successfully updated.' }
+        format.html { redirect_to @monitorium, notice: 'Monitoria atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @monitorium }
       else
         format.html { render :edit }

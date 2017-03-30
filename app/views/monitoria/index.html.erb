@@ -23,12 +23,14 @@
 
         <% @monitoria.each do |monitorium| %>
             <tr>
-            <td><strong><%= monitorium.data %></strong></td>
+            <td><%= post_date(monitorium.data)%></td>
             <td><%= monitorium.monitor.name %></td>
             <td><%= monitorium.professor.name %></td>
             <td><%= monitorium.disciplina.sigla %></td>
             <td><%= link_to 'Detalhes', monitorium %></td>
-            <td><%= link_to 'Agendar', agendar_monitorium_path(monitorium),  data: { confirm: 'Certeza que gostaria de agendar essa monitoria?' } %></td>
+            <% if monitorium.capacidadeatual > 0%>
+              <td><%= link_to 'Agendar', agendar_monitorium_path(monitorium),  data: { confirm: 'Certeza que gostaria de agendar essa monitoria?' } %></td>
+            <%end%>
             <td><%= link_to 'Editar', edit_monitorium_path(monitorium) %></td>
             <td><%= link_to 'Excluir', monitorium, method: :delete, data: { confirm: 'Certeza que quer cancelar essa monitoria?' } %></td>
             <td><%= link_to 'Cancelar Agendamento', cancelar_monitorium_path(monitorium),  data: { confirm: 'Certeza que gostaria de cancelar o agendamento dessa aula?' } %></td>
