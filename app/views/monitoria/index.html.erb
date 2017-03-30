@@ -5,17 +5,16 @@
   <div class="row">
 
     <div class="Conteudo">
-      <h1 class="Fonte">Monitorias</h1>
+      <h1>Monitorias</h1>
 
       <table class="TabelaMonitorias">
         
         <thead>
           <tr>
-            <th><strong>DATA</strong></th>
-            <th><strong>MONITOR</strong></th>
-            <th><strong>PROFESSOR</strong></th>
-            <th><strong>DISCIPLINA</strong></th>
-            
+            <th>DATA&nbsp;&nbsp;&nbsp;</th>
+            <th>MONITOR&nbsp;&nbsp;&nbsp;</th>
+            <th>PROFESSOR&nbsp;&nbsp;&nbsp;</th>
+            <th>DISCIPLINA</th>
           </tr>
         </thead>
 
@@ -37,7 +36,7 @@
         <% end %>
         </tbody>
       </table>
-       <div class="btn btn-default btn-lg"> <%= link_to 'Nova Monitoria', new_monitorium_path, style: "color: black;" %></div>
+       <div style="margin-top:30px"; class="btn btn-default btn-lg"> <%= link_to 'Nova Monitoria', new_monitorium_path, style: "color: black;" %></div>
     </div>
   </div>
 </div>
