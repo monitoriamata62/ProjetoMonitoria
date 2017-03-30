@@ -28,7 +28,7 @@
             <td><%= monitorium.professor.name %></td>
             <td><%= monitorium.disciplina.sigla %></td>
             <td><%= link_to 'Detalhes', monitorium %></td>
-            <% if monitorium.capacidadeatual > 0%>
+            <% if (monitorium.capacidadeatual > 0)%>
               <td><%= link_to 'Agendar', agendar_monitorium_path(monitorium),  data: { confirm: 'Certeza que gostaria de agendar essa monitoria?' } %></td>
             <%end%>
             <td><%= link_to 'Editar', edit_monitorium_path(monitorium) %></td>
