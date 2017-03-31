@@ -1,7 +1,7 @@
 class MonitoriumPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope
-    end
+ 
+  def create?
+    @user.professor?
   end
+  
 end

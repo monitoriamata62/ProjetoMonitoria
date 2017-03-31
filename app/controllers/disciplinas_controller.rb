@@ -20,8 +20,10 @@ class DisciplinasController < ApplicationController
   # GET /disciplinas/new
   def new
     @disciplina = Disciplina.new
+    authorize @disciplina
   end
-
+  
+ 
   # GET /disciplinas/1/edit
   def edit
   end

@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<%= flash_message %>
 
 <div id="main-container" class="container" style="text-align: left">
   <div class="row">
@@ -23,11 +22,12 @@
        
         </tr>
       </table>
-       <td><div style="margin-top:30px;" class="btn btn-default btn-lg"><%= link_to 'Nova Disciplina', new_disciplina_path, style: "color: black;" %></div></td>
-  </div>
+      <td><div style="margin-top:30px;" class="btn btn-default btn-lg"><%= link_to 'Nova Disciplina', new_disciplina_path, style: "color: black;" %></div></td>
+    </div>
  
 </div>
 
 </div>
 
 <%= will_paginate @disciplinas %>
+

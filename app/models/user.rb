@@ -5,4 +5,24 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :monitorium
+  
+  
+  
+  def professor?
+    role == 'professor'
+  end
+
+  def monitor?
+    role == 'monitor'
+  end
+
+  def normal_user?
+    role == 'normal_user'
+  end
+
+  def admin?
+    role == 'admin'
+  end
+  
+  
 end
