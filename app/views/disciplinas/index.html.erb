@@ -22,7 +22,11 @@
        
         </tr>
       </table>
-      <td><div style="margin-top:30px;" class="btn btn-default btn-lg"><%= link_to 'Nova Disciplina', new_disciplina_path, style: "color: black;" %></div></td>
+      <%if @User != nil %> 
+        <%if policy(Disciplina).new? %>
+          <td><div style="margin-top:30px;" class="btn btn-default btn-lg"><%= link_to 'Nova Disciplina', new_disciplina_path, style: "color: black;" %></div></td>
+        <%end%>  
+      <%end%>
     </div>
  
 </div>
