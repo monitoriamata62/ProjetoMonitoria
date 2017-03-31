@@ -48,6 +48,7 @@ class DisciplinasController < ApplicationController
   # PATCH/PUT /disciplinas/1
   # PATCH/PUT /disciplinas/1.json
   def update
+    authorize @disciplina
     respond_to do |format|
       if @disciplina.update(disciplina_params)
         format.html { redirect_to @disciplina, notice: 'Disciplina was successfully updated.' }
@@ -62,6 +63,7 @@ class DisciplinasController < ApplicationController
   # DELETE /disciplinas/1
   # DELETE /disciplinas/1.json
   def destroy
+    authorize @disciplina
     @disciplina.destroy
     respond_to do |format|
       format.html { redirect_to disciplinas_url, notice: 'Disciplina was successfully destroyed.' }
