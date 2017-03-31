@@ -5,12 +5,10 @@ class MonitoriaControllerTest < ActionDispatch::IntegrationTest
     @monitorium = monitoria(:one)
   end
 
-  test "should get index" do
-    get monitoria_url
-    assert_response :success
-  end
-
-  
+  #test "should get index" do
+   # get monitoria_url
+    #assert_response :success
+  #end
 
   test "should show monitorium" do
     get monitorium_url(@monitorium)
