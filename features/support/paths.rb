@@ -12,16 +12,28 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-      when 'New Disciplina'
-        new_disciplina_path
-
+      
       when 'Show Areas'
         areas_path
       
+      when 'Areas'
+        areas_path
+
+      when 'Area'
+        root_path
+      
+      when 'Disciplina'
+        disciplinas_path
+      
+      when 'New Disciplina'
+        new_disciplina_path
+        
       when 'Show Disciplina'
         disciplinas_path(Disciplina.last)
 
-
+      when 'Unidade'
+        unidades_path
+      
       when 'New Unidade'
         new_unidade_path
 
@@ -30,28 +42,18 @@ module NavigationHelpers
 
       when 'New User'
         new_user_registration_path
-        
-        
-      when 'Areas'
-        areas_path
-
-    
-      when 'Area'
-        root_path
-
-      
-      when 'Unidade'
-        unidades_path
-
-
-      when 'Disciplina'
-        disciplinas_path
-        
 
       when 'Login'
         new_user_session_path
+        
+      when 'Monitoria'
+        monitoria_path
 
+       when 'New Monitoria'
+        new_unidade_path
 
+      when 'Show Monitoria'
+        monitoria_path(Monitoria.last)
 
       when /^the home\s?page$/
       '/'

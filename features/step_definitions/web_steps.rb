@@ -11,34 +11,33 @@ require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "pat
 # Commonly used webrat steps
 # http://github.com/brynary/webrat
 
-Dado /^que eu estou na página "(.+)"$/ do |page_name|
+Dado (/^que eu estou na página "(.+)"$/) do |page_name|
   visit path_to(page_name)
 end
 
-Quando /^eu for para a página "(.+)"$/ do |page_name|
+Quando (/^eu for para a página "(.+)"$/) do |page_name|
   visit path_to(page_name)
 end
 
-Quando /^eu (?:pressionar o|clicar no) botão "([^\"]*)"$/ do |button|
+Quando (/^eu (?:pressionar o|clicar no) botão "([^\"]*)"$/) do |button|
   click_button(button)
 end
 
-Quando /^eu (?:seguir o|clicar no) link "([^\"]*)"$/ do |link|
+Quando (/^eu (?:seguir o|clicar no) link "([^\"]*)"$/) do |link|
   click_link(link)
 end
 
-Quando /^eu seguir para a página "([^\"]*)" em "([^\"]*)"$/ do |link, parent|
+Quando (/^eu seguir para a página "([^\"]*)" em "([^\"]*)"$/) do |link, parent|
   click_link_within(parent, link)
 end
 
-Quando /^eu preencher [oa] "([^\"]*)" com "([^\"]*)"$/ do |field, value|
+Quando (/^eu preencher [oa] "([^\"]*)" com "([^\"]*)"$/) do |field, value|
   fill_in(field, :with => value)
 end
 
-Quando /^eu preencher o campo "([^\"]*)" com "([^\"]*)"$/ do |field, value|
+Quando (/^eu preencher o campo "([^\"]*)" com "([^\"]*)"$/) do |field, value|
   fill_in(field, :with => value)
 end
-
 
 
 Dado (/^que estou na home page$/) do
