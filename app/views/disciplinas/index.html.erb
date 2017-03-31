@@ -11,9 +11,14 @@
         <tr>
            
           <td><div class="botaoPadrao Espaco"><%= link_to disciplina.sigla + ':   ' + disciplina.descricao, disciplina_monitoria_path(disciplina.id),  style: "color: #FFF;"%></div></td>
-          <td><div class="botaoPadrao Espaco"><%= link_to 'Detalhes', disciplina_path(disciplina.id), style: "color: #FFF;"%></div></td>
-          <td><div class="botaoPadrao Espaco"><%= link_to 'Editar', edit_disciplina_path(disciplina), style: "color: #FFF;" %></div></td>
-          <td><div class="botaoPadrao Espaco"><%= link_to 'Excluir', disciplina, method: :delete, data: { confirm: 'Certeza que quer deletar essa disciplina?' }, style: "color: #FFF;" %></div></td>
+          <%if @User != nil %> 
+            <%if policy(Disciplina).edit? %>
+              <td><div class="botaoPadrao Espaco"><%= link_to 'Detalhes', disciplina_path(disciplina.id), style: "color: #FFF;"%></div></td>
+              <td><div class="botaoPadrao Espaco"><%= link_to 'Editar', edit_disciplina_path(disciplina), style: "color: #FFF;" %></div></td>
+              <td><div class="botaoPadrao Espaco"><%= link_to 'Excluir', disciplina, method: :delete, data: { confirm: 'Certeza que quer deletar essa disciplina?' }, style: "color: #FFF;" %></div></td>
+            <%end%>  
+          <%end%>
+          
           
        
         <% end %>

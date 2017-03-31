@@ -27,13 +27,17 @@
             <td><%= monitorium.monitor.name %></td>
             <td><%= monitorium.professor.name %></td>
             <td><%= monitorium.disciplina.sigla %></td>
-            <td><%= link_to 'Detalhes', monitorium %></td>
+            <td><div class="botaoPadrao Espaco"><%= link_to 'Detalhes', monitorium , style: "color: #FFF;"%></div></td>
             <% if (monitorium.capacidadeatual > 0)%>
-              <td><%= link_to 'Agendar', agendar_monitorium_path(monitorium),  data: { confirm: 'Certeza que gostaria de agendar essa monitoria?' } %></td>
+              <td><div class="botaoPadrao Espaco"><%= link_to 'Agendar', agendar_monitorium_path(monitorium),  data: { confirm: 'Certeza que gostaria de agendar essa monitoria?' }, style: "color: #FFF;"%></div></td>
             <%end%>
-            <td><%= link_to 'Editar', edit_monitorium_path(monitorium) %></td>
-            <td><%= link_to 'Excluir', monitorium, method: :delete, data: { confirm: 'Certeza que quer cancelar essa monitoria?' } %></td>
-            <td><%= link_to 'Cancelar Agendamento', cancelar_monitorium_path(monitorium),  data: { confirm: 'Certeza que gostaria de cancelar o agendamento dessa aula?' } %></td>
+            <%if @User != nil %> 
+            <%if policy(Monitorium).edit? %>
+                <td><div class="botaoPadrao Espaco"><%= link_to 'Editar', edit_monitorium_path(monitorium), style: "color: #FFF;"%></div></td>
+                <td><div class="botaoPadrao Espaco"><%= link_to 'Excluir', monitorium, method: :delete, data: { confirm: 'Certeza que quer cancelar essa monitoria?' } , style: "color: #FFF;"%></div></td>
+              <%end%>  
+            <%end%>
+            <td><div class="botaoPadrao Espaco"><%= link_to 'Cancelar Agendamento', cancelar_monitorium_path(monitorium),  data: { confirm: 'Certeza que gostaria de cancelar o agendamento dessa aula?' } , style: "color: #FFF;"%></div></td>
             </tr>
         <% end %>
         </tbody>
