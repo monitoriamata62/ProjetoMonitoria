@@ -1,7 +1,7 @@
 <%= form_for(monitorium) do |f| %>
   <% if monitorium.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(monitorium.errors.count, "error") %> prohibited this monitorium from being saved:</h2>
+      <h2>Preencha todos os campos:</h2>
 
       <ul>
       <% monitorium.errors.full_messages.each do |message| %>
