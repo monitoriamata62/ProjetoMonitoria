@@ -28,6 +28,7 @@ Funcionalidade: Criar
     
     Cenario: NavegarThree
     
-    Dado que eu estou na página "Disciplina"
-    Quando eu clicar no link "Nova Disciplina"
-    Então eu devo estar na página "Login"
+    Dado que eu estou na página "Area"
+    Quando eu clicar no link "Monitorias"
+    Então eu devo estar na página "Monitoria"
+    
