@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= flash_message %>
 
 
 <div id="main-container" class="container" style="text-align: left">
@@ -38,7 +38,11 @@
         <% end %>
         </tbody>
       </table>
-       <div style="margin-top:30px"; class="btn btn-default btn-lg"> <%= link_to 'Nova Monitoria', new_monitorium_path, style: "color: black;" %></div>
+      <%if @User != nil %> 
+        <%if policy(Monitorium).new? %>
+          <div style="margin-top:30px"; class="btn btn-default btn-lg"> <%= link_to 'Nova Monitoria', new_monitorium_path, style: "color: black;" %></div>
+        <%end%>  
+      <%end%>
     </div>
   </div>
 </div>

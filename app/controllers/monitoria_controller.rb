@@ -5,6 +5,7 @@ class MonitoriaController < ApplicationController
   # GET /monitoria
   # GET /monitoria.json
   def index
+    @User = current_user
     if params[:disciplina_id].present?
       lId_parametro = params.require(:disciplina_id)
       @monitoria = Monitorium.where(disciplina: lId_parametro).order(:data).paginate(:page => params[:page], :per_page => 10)
@@ -21,7 +22,10 @@ class MonitoriaController < ApplicationController
   # GET /monitoria/new
   def new
     @monitorium = Monitorium.new
+    authorize @monitorium
   end
+  
+  
 
   # GET /monitoria/1/edit
   def edit

@@ -1,7 +1,7 @@
 class MonitoriumPolicy < ApplicationPolicy
  
   def create?
-    @user.professor?
+    @user.monitor?
   end
   
 end
