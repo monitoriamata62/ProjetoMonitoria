@@ -23,13 +23,17 @@
 
     </div>-->
     
+    <% @User = current_user %>
     <%= link_to 'Monitoria - UFBA', root_path, class: 'navbar-brand',style: "padding-right: 5%;"  %>
     <%= link_to 'Unidades', unidades_path, class: 'navbar-brand ItemMenu' %>
     <%= link_to 'Disciplinas', disciplinas_path, class: 'navbar-brand ItemMenu' %>
     <%= link_to 'Monitorias', monitoria_path, class: 'navbar-brand ItemMenu' %>
     <%= link_to 'Monitores', monitores_path, class: 'navbar-brand ItemMenu' %>
-    <%= link_to 'Administrar', rails_admin_path, class: 'navbar-brand ItemMenu' %>
-
+    <%if @User != nil %>
+      <%if @User.role == 'admin' %>
+        <%= link_to 'Administrar', rails_admin_path, class: 'navbar-brand ItemMenu' %>
+      <%end%>
+    <%end%>
     <% if user_signed_in? %>
         <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'navbar-brand login' %>
     <% else %>
