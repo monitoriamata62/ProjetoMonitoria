@@ -1,0 +1,23 @@
+<%= flash_message %>
+
+
+<div id="main-container" class="container" style="text-align: left">
+  <div class="row">
+
+    <div class="Conteudo">
+      <h1>Monitores</h1>
+
+      <table class="TabelaMonitorias">
+        
+
+        <tbody>
+
+        <% @user.each do |user| %>
+            <tr>
+            <td><div class="botaoPadrao Espaco"><%= link_to user.name,  monitore_monitoria_path(user.id),  style: "color: #FFF;"%></div></td>
+            </tr>
+        <%end%>  
+    </div>
+  </div>
+</div>
+

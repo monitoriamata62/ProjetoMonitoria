@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       get 'cancelar'
     end
   end
+  resources :monitores, only: [:index]
+  
   
    #Relacionamentos:
 
@@ -33,9 +35,12 @@ Rails.application.routes.draw do
   resources :disciplinas do
     resources :monitoria
     end
+  resources :monitores do
+    resources :monitoria
+    end
 
   #URL/CONTROLADOR/AÇÂO/O QUE SERÀ FEITO
-  match 'monitores', controller: 'utilizadors', action: 'monitores', via: 'get'
+
 
 
   #resources :disciplinas, except: :destroy

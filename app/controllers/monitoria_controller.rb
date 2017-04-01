@@ -5,14 +5,19 @@ class MonitoriaController < ApplicationController
   # GET /monitoria
   # GET /monitoria.json
   def index
+    if params[:monitore_id].present?
+       @monitoria = Monitorium.where(monitor_id: params[:monitore_id])
     @User = current_user
-    if params[:disciplina_id].present?
+    else
+      if params[:disciplina_id].present?
       lId_parametro = params.require(:disciplina_id)
       @monitoria = Monitorium.where(disciplina: lId_parametro).order(:data)
-    else
+      else
       @monitoria = Monitorium.order(:data)
+      end
     end
   end
+
 
   # GET /monitoria/1
   # GET /monitoria/1.json
@@ -103,7 +108,6 @@ class MonitoriaController < ApplicationController
       end
     end
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
