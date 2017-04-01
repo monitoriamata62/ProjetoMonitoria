@@ -5,9 +5,9 @@ class MonitoriaController < ApplicationController
   # GET /monitoria
   # GET /monitoria.json
   def index
-    if params[:monitore_id].present?
-       @monitoria = Monitorium.where(monitor_id: params[:monitore_id])
     @User = current_user
+    if params[:monitore_id].present?
+       @monitoria = Monitorium.where(monitor_id: params[:monitore_id]).order(:data)
     else
       if params[:disciplina_id].present?
       lId_parametro = params.require(:disciplina_id)
