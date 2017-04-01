@@ -28,6 +28,7 @@
     <%= link_to 'Disciplinas', disciplinas_path, class: 'navbar-brand ItemMenu' %>
     <%= link_to 'Monitorias', monitoria_path, class: 'navbar-brand ItemMenu' %>
     <%= link_to 'Monitores', root_path, class: 'navbar-brand ItemMenu' %>
+    <%= link_to 'Administrar', rails_admin_path, class: 'navbar-brand ItemMenu' %>
 
     <% if user_signed_in? %>
         <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'navbar-brand login' %>

@@ -7,9 +7,9 @@ class DisciplinasController < ApplicationController
     @User = current_user
     if params[:unidade_id].present?
       lId_parametro = params.require(:unidade_id)
-      @disciplinas = Disciplina.where(unidade: lId_parametro).order(:descricao).paginate(:page => params[:page], :per_page => 3)
+      @disciplinas = Disciplina.where(unidade: lId_parametro).order(:descricao)
     else
-      @disciplinas = Disciplina.order(:descricao).paginate(:page => params[:page], :per_page => 10)
+      @disciplinas = Disciplina.order(:descricao)
     end
   end
 
