@@ -59,6 +59,8 @@ gem 'compass-rails'
 gem 'devise'
 gem 'pundit'
 gem 'devise-i18n'
+gem 'rails_admin'
+gem 'rails3-generators'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -77,7 +79,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rails_admin', '~> 1.1.1'
 end
 
 group :test do
