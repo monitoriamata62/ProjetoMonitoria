@@ -32,7 +32,7 @@
               <td><div class="botaoPadrao Espaco"><%= link_to 'Agendar', agendar_monitorium_path(monitorium),  data: { confirm: 'Certeza que gostaria de agendar essa monitoria?' }, style: "color: #FFF;"%></div></td>
             <%end%>
             <%if @User != nil %> 
-            <%if policy(Monitorium).edit? %>
+            <%if policy(Monitorium).edit? && @User.name == monitorium.monitor.name %>
                 <td><div class="botaoPadrao Espaco"><%= link_to 'Editar', edit_monitorium_path(monitorium), style: "color: #FFF;"%></div></td>
                 <td><div class="botaoPadrao Espaco"><%= link_to 'Excluir', monitorium, method: :delete, data: { confirm: 'Certeza que quer cancelar essa monitoria?' } , style: "color: #FFF;"%></div></td>
               <%end%>  
