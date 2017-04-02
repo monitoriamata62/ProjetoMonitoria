@@ -78,25 +78,44 @@ class MonitoriaController < ApplicationController
   end
   
   def agendar
+    @user = current_user
+    @agendamento = Agenda.new()
     @monitorium = Monitorium.find(params[:id])
-    if @monitorium.capacidadeatual > 0
-      @monitorium.decrement! :capacidadeatual
-      respond_to do |format|
-        format.html { redirect_to monitoria_url, notice: 'Aula agendada com sucesso.' }
-        format.json { head :no_content }
+    @agendamento.monitorium = @monitorium
+    @agendamento.user = current_user
+    lid_user = @user.id
+    lid_monitoria = @monitorium.id
+    @verifica = Agenda.find_by(monitorium: lid_monitoria, user: lid_user)
+    if @verifica.nil?
+      if @monitorium.capacidadeatual > 0
+        @monitorium.decrement! :capacidadeatual
+        @agendamento.save
+        respond_to do |format|
+          format.html { redirect_to monitoria_url, notice: 'Aula agendada com sucesso.' }
+          format.json { head :no_content }
+        end
+      else
+        respond_to do |format|
+          format.html { redirect_to monitoria_url, notice: 'Infelizmente essa aula está lotada.' }
+          format.json { head :no_content }
+        end
       end
     else
       respond_to do |format|
-        format.html { redirect_to monitoria_url, notice: 'Infelizmente essa aula está lotada.' }
+        format.html { redirect_to monitoria_url, notice: 'Ja esta agendado.' }
         format.json { head :no_content }
       end
     end
   end
   
   def cancelar
+    @user = current_user
     @monitorium = Monitorium.find(params[:id])
+    lid_user = @user.id
+    lid_monitoria = @monitorium.id
     if @monitorium.capacidadeatual < @monitorium.capacidade
       @monitorium.increment! :capacidadeatual
+      Agenda.delete_all(monitorium: lid_monitoria, user: lid_user)
       respond_to do |format|
         format.html { redirect_to monitoria_url, notice: 'Agendamento de aula cancelado com sucesso.' }
         format.json { head :no_content }

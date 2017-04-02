@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Monitorium:</strong>
+  <%= @agenda.monitorium %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @agenda.user %>
+</p>
+
+<%= link_to 'Edit', edit_agenda_path(@agenda) %> |
+<%= link_to 'Back', agendas_path %>

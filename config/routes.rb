@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :agendas
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :monitoria
   devise_for :users
