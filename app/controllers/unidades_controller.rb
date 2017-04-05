@@ -11,7 +11,7 @@ class UnidadesController < ApplicationController
       if params[:search]
         @unidades = Unidade.where("descricao like ?", "%#{params[:search]}%")
       else
-        @unidades = Unidade.order(:descricao)
+        @unidades = Unidade.order(:descricao).page(params['page']).per(10)
       end
     end
   end
